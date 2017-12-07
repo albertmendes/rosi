@@ -1,0 +1,933 @@
+body {
+/*
+  background: url(../img/fullbg.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  */
+  background: white;
+  /*
+  font-family: 'Josefin Sans', sans-serif;
+  */
+  font-family: 'Lato';
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  color: #333;
+}
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 89px;
+  font-weight: 100;
+}
+
+.invisible {
+  display: none;
+}
+
+div.start-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 999999;
+  background: white;
+  opacity: 1;
+  animation-name: hidestartoverlay;
+  animation-delay: .5s;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+@keyframes hidestartoverlay {
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+}
+
+div.wrapper-1199 {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1199px;
+  padding: 5px;
+}
+div.IE-loading {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 144px;
+  display: none;
+  animation-name: hideIE;
+  animation-delay: 3.5s;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  opacity: 1;
+}
+@keyframes hideIE {
+  to {
+    opacity: 0;
+  }
+}
+div.portrait-wrapper {
+  max-width: 100%;
+  position: absolute;
+  top: 144px;
+  left: 50%;
+  margin-left: -150px;
+  text-align: center;
+  cursor:pointer;
+  z-index: 9999;
+  transition: all 1s;
+}
+div.portrait-wrapper svg, #myClip, defs {
+  position: absolute;
+  width: 300px;
+  margin: auto;
+  background: white;
+  border-radius: 50%;
+  transition: all 1s;
+}
+div.portrait-wrapper img {
+  position: absolute;
+  width: 300px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  animation-name: show;
+  animation-delay: 4s;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  border-radius: 50%;
+  transition: all 1s;
+}
+div.portrait-wrapper img.toggle {
+  width: 55px;
+  margin-left: 21px;
+}
+div.portrait-wrapper.toggle {
+  top: 0;
+  width: 55px;
+  left: 0;
+  margin-left: 0px;
+}
+@keyframes show {
+  to {
+    opacity: 1;
+  }
+}
+
+.IEschrift {
+  position: relative;
+  width: 233px;
+  top: 8px;
+}
+div.schrift-wrapper {
+  position: absolute;
+  width: 300px; 
+  left: 100px;
+}
+div.schrift-wrapper svg, #myClip2, defs {
+  width: 300px; 
+}
+@media (max-width: 425px) {
+  div.portrait-wrapper {
+    top: 55px;
+  }
+  div.schrift-wrapper, div.schrift-wrapper svg, #myClip2, defs {
+    width: 200px;
+    left: 89px;
+  }
+  div.schrift-wrapper {
+    top: 13px;
+  }
+}
+
+
+.burgerBun {
+  position: fixed;
+  width: 55px;
+  height: 55px;
+  /*background: white;*/
+  border-radius: 100%;
+  top: 18px;
+  right: 0px;
+  z-index: 99;
+  opacity: 0.8;
+  background: transparent;
+  display: none;
+}
+
+.burgerMenu {
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 36px;
+  cursor: pointer;
+}
+
+.burgerMenu span.menu1, .burgerMenu span.menu2, .burgerMenu span.menu3 {
+  display: block;
+  position: absolute;
+  border-radius: 5px;
+  width: 34px;
+  height: 5px;
+  left: 0;
+  background: #fff;
+  -webkit-transition: all 0.35s cubic-bezier(0.75, 0.25, 0.10, 0.95);
+  transition: all 0.35s cubic-bezier(0.75, 0.25, 0.10, 0.95);
+}
+
+.burgerMenu span.menu1 {
+  top: 0;
+}
+.burgerMenu span.menu2 {
+  top: 8px;
+}
+.burgerMenu span.menu3 {
+  top: 16px;
+}
+
+.burgerMenu.active span.menu1 {
+        top: 14px;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        -webkit-transition: all 0.35s cubic-bezier(0.75, 0.25, 0.10, 0.95);
+        transition: all 0.5s cubic-bezier(0.75, 0.25, 0.10, 0.95);
+}
+.burgerMenu.active span.menu2 {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        -webkit-transition: all 0.35s cubic-bezier(0.75, 0.25, 0.10, 0.95);
+        transition: all 0.5s cubic-bezier(0.75, 0.25, 0.10, 0.95);
+	top: 14px;
+}
+.burgerMenu.active span.menu3 {
+        opacity: 0;
+        -webkit-transition: opacity 0.35s cubic-bezier(0.75, 0.25, 0.10, 0.95);
+        transition: opacity 0.35s cubic-bezier(0.75, 0.25, 0.10, 0.95);
+}
+
+.mobile-menu {
+  display: block;
+  position: fixed;
+  padding: 0;
+  right: -242px;
+  width: 200px;
+  transition: all .5s;
+  box-shadow: 0 -5px 5px rgba(0,0,0,0.4);
+  background: rgba(255,255,255,0.95);
+  height: 100%;
+  z-index: 98;
+}
+.mobile-menu-toggle {
+  right: 0px;
+}
+.mobile-menu ul {
+  margin: 0;
+  padding: 89px 0 0 0;
+  list-style: none;
+}
+.mobile-menu ul li {
+  text-align: center;
+  width: 100%;
+  padding: 13px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.mobile-menu ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+div.navi {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 65px;
+  padding: 5px 0 5px 0;
+  background: rgba(0,0,0,0);
+  animation-name: shownavibg;
+  animation-delay: 6s;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  z-index: 2;
+}
+@keyframes shownavibg {
+  to {
+    background: rgba(0,0,0,0.8);
+  }
+}
+
+div.navi ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  float: right;
+  height: 55px;
+  opacity: 0;
+  animation-name: showul;
+  animation-delay: 5.5s;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+@media (max-width: 425px) {
+  div.navi ul {
+    display: none;
+  }
+}
+@keyframes showul {
+  to {
+    opacity: 1;
+  }
+}
+
+div.navi ul li {
+  float: left;
+  margin-right: 34px;
+  height: 55px;
+  width: 100px;
+  text-align: center;
+}
+div.navi ul li a {
+  display: block;
+  line-height: 55px;
+  color: white;	
+  text-decoration: none;
+  letter-spacing: 5px;
+  transition: all .3s;
+} 
+div.navi ul li a:hover {
+  border-bottom: 5px solid rgba(200,200,200,0.6);
+}
+
+.bioLink, .galleryLink, .contactLink {
+  border-bottom: 0;
+}
+.bioLink.active, .galleryLink.active, .contactLink.active {
+  border-bottom: 5px solid rgba(150,150,150,0.6);
+  color: rgba(150,150,150,0.6);
+}
+
+section {
+  position: relative;
+}
+
+section#home {
+  position: relative;
+  text-align: center;
+  height: 100vh;
+}
+#home h1 {
+  font-size: 89px;
+}
+#home p {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: bold;
+  /*text-shadow: 0px 1px 5px black;*/
+  font-size: 34px;
+  font-weight: 300;
+  max-width: 500px;
+}
+div.header-w {
+  top: 144px;
+  opacity: 0;
+  animation-name: showheader;
+  animation-delay: 7s;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+div.bio-top {
+  animation-name: showbiotop;
+  animation-delay: 7s;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  position: absolute;
+  height: 89px;
+  background: url(../img/bio_bg.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /*max-width: 1199px;*/
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+}
+
+div.polygon-wrapper-left, div.polygon-wrapper-left2 {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+div.top-border-fix {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  border-top: 1px solid white;
+}
+div.left-border-fix {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  border-left: 1px solid white;
+}
+div.border-fix {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  border-bottom: 1px solid white;
+}
+div.polygon-wrapper-right, div.polygon-wrapper-right2 {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  bottom: 0;
+  right: -1px;
+}
+div.polygon-wrapper-left svg, div.polygon-wrapper-right svg, div.polygon-wrapper-left2 svg, div.polygon-wrapper-right2 svg {
+  width: 100%;
+  height: 100%;
+}
+div.polygon-wrapper-left svg polygon, div.polygon-wrapper-right svg polygon, div.polygon-wrapper-left2 svg polygon, div.polygon-wrapper-right2 svg polygon {
+  fill: white;
+}
+
+.gotobiomobile {
+  position: absolute !important;
+  bottom: 89px;
+  z-index: 2;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  display: none;
+}
+.tcon-mobile path {
+  stroke: #777!important;
+}
+
+.tcon-svgchevron {
+  position: relative;
+  top: 13px;
+  width: 55px;
+  height: 55px;
+}
+.tcon-svgchevron path {
+  animation-name: chevron-pulse;
+  animation-duration: 3s;
+  animation-timing-function: 
+    cubic-bezier(0.4, 0, 0.2, 1);
+  animation-iteration-count: infinite;
+  animation-direction: initial;
+  animation-fill-mode: initial;
+  animation-play-state: initial;
+  stroke-dashoffset: 0 !important;
+  stroke-dasharray: 0 !important;
+  stroke: white;
+  stroke-width: 1px;
+  fill: transparent;
+}
+
+path.a1 {
+  animation-delay: 0s;
+}
+path.a2 {
+  animation-delay: -.5s;
+}
+path.a3 {
+  animation-delay: -1s;
+}
+@keyframes chevron-pulse {
+  0%{
+    opacity: 0
+  }
+  40% {
+    opacity: 1
+  }
+  80% {
+    opacity: 0
+  }
+  100% {
+    opacity: 0
+  }
+}
+@keyframes showbiotop {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showheader {
+  to {
+    top: 55px;
+    opacity: 1;
+  }
+}
+
+section#bio {
+  min-height: 444px;
+  /*background: rgba(0,0,0,0.8);*/
+  background: url(../img/bio_bg.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: black;
+}
+div.bio-wrapper {
+  padding: 55px 21px 89px 21px;
+}
+#bio h1 {
+  color: white;
+  line-height: 144px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+div.bio-text {
+  width: 100%;
+  padding: 55px 0 0 0;
+}
+span.danke-birgit {
+  font-size: 14px;
+  font-style: italic;
+  color: white;
+  position: absolute;
+  margin-top: -55px;
+  margin-left: 34px;
+}
+a.bio-bild1 img {
+  float: right;
+  margin: 0 0 13px 13px;
+  max-width: 33%;
+}
+a.bio-bild2 img{
+  float: left;
+  margin: 0 13px 13px 0;
+  max-width: 33%;
+}
+#bio p {
+  color: white;
+  line-height: 21px;
+}
+#bio span.first-letter {
+  font-size: 200%;
+}
+
+section#sepa1 {
+  height: 0px;
+  width: 100%;
+  background: rgba(255,255,255,0.8);
+}
+
+#gallery {
+  min-height: 100vh;
+  overflow: auto;
+  background: white;
+  /*
+  background: url(../img/gallery_bg.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  */
+  /*
+  padding: 55px 21px 144px 21px;
+  */
+  padding: 0 0 144px 0;
+}
+
+#gallery h1 {
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  line-height: 144px;
+}
+
+div.gallery-wrapper {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1199px;
+  padding: 0 21px 0 21px;
+}
+div.navi-space {
+  position: relative;
+  width: 100%;
+  height: 65px;
+  background: url(../img/bio_bg.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 55px;
+}
+#gallery a.img-item {
+  color: white;
+  font-weight: bold;
+  opacity: 0;
+}
+#gallery ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#gallery ul li {
+  margin: 0;
+  padding: 0;
+}
+div.fl-left {
+  width: 33.33333%;
+  float: left;
+}
+
+.img-wrapper {
+  width: 100%;
+  position: relative;
+}
+.img-wrapper img {
+  width: 100%;
+
+}
+.inner-border-transform-1 {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border: 10px solid rgba(0,0,0,0.2);
+}
+.inner-border-transform-2 {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border: 0px solid rgba(0,0,0,0.2);
+}
+.caption {
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	transition: .5s ease;
+	font-size: 14px;
+	padding: 1em;
+	opacity: 0;
+}
+.caption.toggle {
+	opacity: 1;
+}
+.caption::before, .caption::after {
+	content: '';
+	position: absolute;
+	background: rgba(0,0,100,0.2);
+	width: 100%;
+	height: 100%;
+	padding: 1em;
+	z-index: -1;
+	right: 30%;
+	bottom: 30%;
+	transition: all .5s;
+}
+.caption::after {
+	left: 30%;
+	top: 30%;
+}
+.caption.toggle::after {
+	left: -1.5em;
+	top: -1.5em;
+}
+.caption.toggle::before {
+	right: -1.5em;
+	bottom: -1.5em;
+}
+
+
+div.mehr-und-kost {
+  clear: both;
+  position: relative;
+  padding: 144px 0 0 0;
+}
+
+div.mehr-bilder {
+  float: left;
+  width: 50%;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 55px 0 0 0;
+}
+
+div.mehr-bilder a {
+  text-decoration: none;
+  color: #999;
+  border-bottom: 1px dotted #999;
+  transition: all .5s;
+}
+div.mehr-bilder a:hover {
+  border-bottom: 5px solid #ccc;
+}
+
+div.kostprobe {
+  width: 50%;
+  float: right;
+  padding-left: 21px;
+  opacity: 0;
+}
+div.kostprobe img {
+  width: 100%;
+}
+.morePics {
+  font-size: 34px;
+  line-height: 39px;
+}
+
+section#contact{
+  position: relative;
+  min-height: 100px;
+  overflow: auto;
+  /*background: url(../img/bio_bg.jpg);*/
+  background: url(../img/fullbg.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0 21px 144px 21px;
+}
+#contact h1 {
+  color: white; 
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  line-height: 144px;
+}
+div.left-contact {
+  position: relative;
+  top: 100px;
+  opacity: 0;
+  float: left;
+  width: 50%;
+  transition: all 2s;
+}
+div.left-contact.show, div.right-contact.show{
+  top: 0;
+  opacity: 1;
+}
+div.right-contact {
+  position: relative;
+  float: right;
+  width: 50%;
+  text-align: center;
+  color: white;
+  padding: 55px 21px 21px 21px;
+  font-size: 21px;
+  line-height: 34px;
+  top: 100px;
+  opacity: 0;
+  transition: all 2s;
+}
+div.right-contact a {
+  color: #999;
+  text-decoration: none;
+  transition: all .5s;
+}
+div.right-contact a:hover {
+  color: white;
+}
+
+div.contactform input {
+  display: block;
+  border-radius: 3px;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+}
+div.contactform input[type="text"], div.contactform textarea {
+  width: 100%;
+  border: 0;
+  margin-bottom:21px;
+  padding: 21px 21px 21px 13px;
+}
+div.contactform textarea {
+  display: block;
+  min-height: 199px;
+  font-family: arial;
+  border-radius: 3px;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+}
+
+div.form-name, div.form-email, div.form-msg {
+  position: relative;
+}
+div.form-name i, div.form-msg i {
+  position: absolute;
+  top: 18px;
+  padding-left: 13px;
+}
+div.form-email span {
+  position: absolute;
+  top: 11px;
+  left: 0;
+  padding-left: 13px;
+  font-size: 24px;
+}
+
+div.contactform input[type="submit"] {
+  width: 100%;
+  border: 0;
+  background: rgba(150,150,150,0.8);
+  color: white;
+  padding: 21px;
+  cursor: pointer;
+  transition: all .5s;
+}
+div.contactform input[type="submit"]:hover {
+  background: rgba(100,100,100,1);
+}
+footer {
+  min-height: 89px;
+  width: 100%;
+  background: white;
+  color: #777;
+}
+div.copyright {
+  text-align: center;
+  line-height: 89px;
+}
+footer a {
+  text-decoration: none;
+  color: #777;
+  border-bottom: 1px dotted #ccc;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    width: 100%;
+    text-align: center;
+  }
+  .burgerBun {
+    display: block;
+  }
+  div.navi ul {
+    display: none;
+  }
+  #home h1 {
+    font-size: 55px;
+  }
+  #home p {
+    font-size: 21px;
+  }
+  div.portrait-wrapper {
+    margin-left: -100px;
+  }
+  div.portrait-wrapper svg, #myClip, defs { 
+    width: 200px;
+  }
+  div.portrait-wrapper img {
+    width: 200px;
+  }
+  div.left-contact, div.right-contact {
+    width: 100%;
+  }
+  div.bio-top {
+    display: none;
+  }
+  .gotobiomobile {
+    display: block;
+  }
+  div.navi-space {
+    display: none;
+  }
+  div.gallery-wrapper {
+    padding: 65px 21px 0 21px;
+  }
+  div.mehr-bilder, div.kostprobe, div.right-contact {
+    width: 100%;
+    padding: 0 21px 21px 21px;
+  }
+  div.kostprobe {
+    padding-left: 0;
+  }
+  div.kostprobe {
+    margin-top: 34px;
+  }
+  span.danke-birgit {
+    position: relative;
+    font-size: 12px;
+    margin-top: -34px;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 425px) {
+  section#contact {
+    background: url(../img/fullbg_mobile.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  div.fl-left {
+    width: 100%;
+  }
+  div.bio-wrapper h1, div.gallery-wrapper h1, #contact h1 {
+    font-size: 55px;
+    width: 100%;
+    text-align: center;
+  }
+  a.bio-bild1 img, a.bio-bild2 img {
+    max-width: 100%;
+  }
+}
+
+@media (min-height: 900px) {
+  section#contact {
+    height: 100vh;
+  }
+}
